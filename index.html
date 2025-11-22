@@ -238,7 +238,7 @@
 
         function renderFolders(items) {
             const folders = items.filter(item => item.type === 'dir');
-            const files = items.filter(item => item.type === 'file' && (item.name.endsWith('.pk8') || item.name.endsWith('.pk9')));
+            const files = items.filter(item => item.type === 'file' && (item.name.toLowerCase().endsWith('.pk8') || item.name.toLowerCase().endsWith('.pk9')));
 
             let html = '';
 
