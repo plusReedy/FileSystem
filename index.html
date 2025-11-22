@@ -259,12 +259,13 @@
             if (files.length > 0) {
                 html += '<div class="file-list">';
                 files.forEach(file => {
-                    const extension = file.name.split('.').pop().toUpperCase();
+                    const extension = file.name.split('.').pop().toLowerCase();
+                    const badge = extension === 'pk8' ? 'SWSH' : 'SCVI';
                     html += `
                         <div class="file-item">
                             <div>
                                 <span class="file-name">${file.name}</span>
-                                <span class="file-badge">${extension}</span>
+                                <span class="file-badge">${badge}</span>
                             </div>
                             <button class="download-btn" onclick="downloadFile('${file.download_url}', '${file.name}')">
                                 Download
@@ -273,7 +274,7 @@
                     `;
                 });
                 html += '</div>';
-            }
+            }}
 
             if (folders.length === 0 && files.length === 0) {
                 html = `
